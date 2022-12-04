@@ -1,19 +1,24 @@
+import sys
+
 class Solution:
     def maxSubArray(self, nums: list[int]) -> int:
+
+        greatest_sum = -sys.maxsize - 1
         n = len(nums)
-        if (n == 1):
-            return nums[0]
 
-        greatest_sum = nums[0]
+        begin = 0
+        end = 0
 
-        for i in range(n):
-            for j in range(n+1):
-                if len(nums[i:j+1]) == 0:
-                    continue
-                current_sum = sum(nums[i:j+1])
-                if current_sum > greatest_sum:
-                    greatest_sum = current_sum
+        while end < n:
+            current_sum = sum(nums[begin:end+1])
+            if current_sum > greatest_sum:
+                greatest_sum = current_sum
+                begin += 1
+                current_sum = nums[begin:end+1]
+            end += 1
 
         return greatest_sum
 
-print(Solution.maxSubArray(Solution, [-2, -1]))
+ls = [5,4,-1,7,8]
+print(ls)
+print(Solution.maxSubArray(Solution, ls))
