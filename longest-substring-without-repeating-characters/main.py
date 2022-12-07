@@ -16,6 +16,7 @@ class Solution:
             else:
                 substring.pop(0)
                 j += 1
+            print(substring)
 
             current_greatest = max(current_greatest, i-j)
 
@@ -27,4 +28,4 @@ class Solution:
 s = "pwwkew"
 t = "abcabcbb"
 u = "bbbbb"
-print(Solution.lengthOfLongestSubstring(Solution, u))
+print(Solution.lengthOfLongestSubstring(Solution, s))
