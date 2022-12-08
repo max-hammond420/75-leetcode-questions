@@ -1,17 +1,19 @@
-from collections import Counter
+from collections import defaultdict
 
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
-        counters =  []
+        dict = defaultdict(list)
         ls = []
-        for i in strs:
-            if Counter(i) not in counters:
-                counters.append(Counter(i))
-                ls.append([i])
-            else:
-                for j in ls:
-                    if Counter(j[0]) == Counter(i):
-                        j.append(i)
+        for s in strs:
+            count = [0] * 26 # a .. z
+            for c in s:
+                count[ord(c) - ord('a')] += 1
+
+            dict[tuple(count)].append(s)
+
+        for v in dict.values():
+            ls.append(v)
+
         return ls
 
 
