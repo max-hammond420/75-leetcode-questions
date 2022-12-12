@@ -2,29 +2,41 @@ class Solution:
     def trap(self, height: list[int]) -> int:
         total = 0
 
-        i = 0
-        while i < len(height):
-            offset = 1
-            local_total = 0
-            while i + offset < len(height):
-                # print(height[i])
-                # print(max(height[i+1:]))
-                # print()
-                if height[i+offset] < height[i] and height[i] <= max(height[i+1:]):
-                    print(height[i] - height[i+offset])
-                    local_total += height[i] - height[i+offset]
+        max_left = []
+        max_right = []
 
-                else:
-                    break
+        current_max = 0
+        for i in range(len(height)):
+            if i == 0:
+                max_left.append(0)
+            else:
+                current_max = max(current_max, height[i-1])
+                max_left.append(current_max)
 
-                offset += 1
 
-            total += local_total
-            i += offset
+        current_max = 0
+        reverse_height = height[::-1]
+        for i in range(len(height)):
+            if i == 0:
+                max_right.append(0)
+            else:
+                current_max = max(reverse_height[i-1], current_max)
+                max_right.append(current_max)
+
+        max_right = max_right[::-1]
+
+        for i in range(len(height)):
+            calc = min(max_left[i], max_right[i]) - height[i]
+            if calc < 0:
+                continue
+            else:
+                total += calc
+
 
         return total
 
 
-# height = [0,1,0,2,1,0,1,3,2,1,2,1]
-height = [4, 2, 3]
+height = [0,1,0,2,1,0,1,3,2,1,2,1]
+# height = [4,2,0,3,2,5]
+# height = [4, 2, 3]
 print(Solution.trap(Solution, height))
