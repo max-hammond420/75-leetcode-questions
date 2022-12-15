@@ -1,5 +1,6 @@
 import sys
 
+
 class Solution:
     def maxSubArray(self, nums: list[int]) -> int:
 
@@ -19,6 +20,7 @@ class Solution:
 
         return greatest_sum
 
-ls = [5,4,-1,7,8]
+
+ls = [5, 4, -1, 7, 8]
 print(ls)
 print(Solution.maxSubArray(Solution, ls))

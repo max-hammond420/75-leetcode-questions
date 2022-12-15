@@ -1,4 +1,5 @@
 class Solution:
+
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         res = []
         nums.sort()
@@ -22,5 +23,6 @@ class Solution:
         return res
 
 
-nums = [0,0,0,0]
+nums = [0, 0, 0, 0]
+Solution.threeSum(Solution, nums)
 print(Solution.threeSum(Solution, nums))

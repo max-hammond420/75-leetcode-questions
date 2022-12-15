@@ -1,7 +1,7 @@
 import sys
 
-class Solution:
 
+class Solution:
 
     def minWindow(self, s: str, t: str) -> str:
         m = len(s)
@@ -18,7 +18,7 @@ class Solution:
         start, end = 0, 0
 
         def containsAll(str, set):
-            """ Check whether sequence str contains ALL of the items in set. """
+            # Check whether sequence str contains ALL of the items in set.
             return 0 not in [c in str for c in set]
 
         while end < m-1:
@@ -38,4 +38,4 @@ class Solution:
 
 s = "ab"
 t = "a"
-print(Solution.minWindow(Solution, s, t))
+(Solution.minWindow(Solution, s, t))

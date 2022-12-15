@@ -1,11 +1,12 @@
 from collections import defaultdict
 
+
 class Solution:
     def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
         dict = defaultdict(list)
         ls = []
         for s in strs:
-            count = [0] * 26 # a .. z
+            count = [0] * 26  # a .. z
             for c in s:
                 count[ord(c) - ord('a')] += 1
 
@@ -17,6 +18,6 @@ class Solution:
         return ls
 
 
-strs = ["eat","tea","tan","ate","nat","bat"]
+strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+sol = Solution.groupAnagrams(strs)
 print(Solution.groupAnagrams(Solution, strs))
-
