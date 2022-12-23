@@ -19,5 +19,3 @@ class Solution:
         if len(ls) == 0:
             return True
         return False
-
-print(Solution.isValid(Solution, '(])'))
