@@ -9,12 +9,12 @@ class Solution:
         while bot <= top:
             mid = (bot + top) // 2
 
-            if nums[mid-1] > nums[mid]:
+            if nums[mid - 1] > nums[mid]:
                 return nums[mid]
 
-            elif nums[mid-1] < nums[mid]:
-                top = mid
-            else:
+            elif (nums[mid] > nums[top]):
                 bot = mid + 1
+            else:
+                top = mid
 
         return -1
