@@ -12,10 +12,6 @@ class Solution:
         if not root:
             return None
 
-        print(root.val)
-        print(val)
-        print()
-
         if root.val < val:
             return self.searchBST(root.right, val)
         elif root.val > val:
