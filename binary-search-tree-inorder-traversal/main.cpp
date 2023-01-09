@@ -14,14 +14,17 @@ using namespace std;
  
 class Solution {
 public:
+    vector<int> ordered;
     vector<int> inorderTraversal(TreeNode* root) {
-        vector<int> ordered;
-
-        if (root) {
-            inorderTraversal(root->left);
-            ordered.push_back(root->val);
-            inorderTraversal(root->right);
-        }
+        getNum(root);
         return ordered;
+    }
+
+    void getNum(TreeNode* root) {
+        if (root) {
+            getNum(root->left);
+            ordered.push_back(root->val);
+            getNum(root->right);
+        }
     }
 };
